@@ -1,0 +1,15 @@
+% openssl
+
+# This is the key used to sign the certificate requests, anyone holding this can sign certificates on ones behalf
+openssl genrsa -des3 -out rootCA.key 4096
+
+# Create and self sign the Root Certificate
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
+
+# Create the certificate key
+openssl genrsa -out mydomain.com.key 2048
+
+# Create the signing  (csr)
+openssl req -new -key mydomain.com.key -out mydomain.com.csr
+
+# see https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309
