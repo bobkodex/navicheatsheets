@@ -1,0 +1,7 @@
+% aws
+
+# describe all instances in aws account
+aws ec2 describe-instances --filter Name=tag:Name,Values=<name_tags> | jq .[][0].Instances[0].PublicIpAddress -r
+
+$ name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text
+
