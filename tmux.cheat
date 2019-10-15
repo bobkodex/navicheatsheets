@@ -1,0 +1,6 @@
+%tmux
+
+# write tmux buffer to file
+tmux write-buffer <(file)
+
+

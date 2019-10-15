@@ -1,15 +1,23 @@
 % openssl
 
 # This is the key used to sign the certificate requests, anyone holding this can sign certificates on ones behalf
-openssl genrsa -des3 -out rootCA.key 4096
+openssl genrsa -out ssl.ca.key 4096
 
 # Create and self sign the Root Certificate
-openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
+openssl req -x509 -new -nodes -key ssl.ca.key -sha256 -days 1024 -out ssl.ca
 
 # Create the certificate key
-openssl genrsa -out mydomain.com.key 2048
+openssl genrsa -out ssl.key 2048
 
 # Create the signing  (csr)
-openssl req -new -key mydomain.com.key -out mydomain.com.csr
+openssl req -new -key ssl.key -out ssl.crt
 
 # see https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309
+
+
+# Exasol workflow of certificate generation
+## openssl req -new -newkey rsa:8192 -nodes -out /exa/etc/ssl/ssl.ca.csr -keyout /exa/etc/ssl/ssl.ca.key -subj "/commonName=ec2-34-248-40-89.eu-west-1.compute.amazonaws.com" 
+## openssl x509 -signkey /exa/etc/ssl/ssl.ca.key -days 2920 -req -in /exa/etc/ssl/ssl.ca.csr -out /exa/etc/ssl/ssl.ca
+## openssl genrsa -out /exa/etc/ssl/ssl.key 8192
+## openssl req -new -key /exa/etc/ssl/ssl.key -out /exa/etc/ssl/ssl.crt.csr -subj "/commonName=ec2-34-248-40-89.eu-west-1.compute.amazonaws.com"
+## openssl x509 -req -days 8192 -in /exa/etc/ssl/ssl.crt.csr -CA /exa/etc/ssl/ssl.ca -CAkey /exa/etc/ssl/ssl.ca.key -set_serial 01 -out /exa/etc/ssl/ssl.crt
