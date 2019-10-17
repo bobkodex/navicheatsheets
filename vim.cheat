@@ -1,0 +1,13 @@
+% vim
+
+# comment out specific line
+:66,70s/^/#
+
+# remove comment
+:66,70s/#/
+ 
+# replace globally case sensistive
+:%s/foo/bar/g
+
+# replace globally case insensitive
+:%s/foo/bar/gi

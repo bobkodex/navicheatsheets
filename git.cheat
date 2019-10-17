@@ -58,4 +58,14 @@ git clean -dxf
 # Sign all commits in a branch based on master
 git rebase master -S -f
 
+# stash
+git stash
+
+# undo stash
+git stash pop
+
+# apply stash
+git stash apply
+
+
 $ branch: git branch | awk '{print $NF}'

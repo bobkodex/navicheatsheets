@@ -21,3 +21,11 @@ openssl req -new -key ssl.key -out ssl.crt
 ## openssl genrsa -out /exa/etc/ssl/ssl.key 8192
 ## openssl req -new -key /exa/etc/ssl/ssl.key -out /exa/etc/ssl/ssl.crt.csr -subj "/commonName=ec2-34-248-40-89.eu-west-1.compute.amazonaws.com"
 ## openssl x509 -req -days 8192 -in /exa/etc/ssl/ssl.crt.csr -CA /exa/etc/ssl/ssl.ca -CAkey /exa/etc/ssl/ssl.ca.key -set_serial 01 -out /exa/etc/ssl/ssl.crt
+
+
+openssl req -new -sha256 -key domain.key -subj "/C=US/ST=CA/O=Acme, Inc./CN=example.com" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com")) -out domain.csr
+
+
+openssl req -x509 -nodes -newkey rsa:2048 \
+    -keyout "ssl.key" -out "ssl.crt" \
+    -subj "/C=DE/ST=Bavaria/L=Nuremberg,O=EXASOL AG" -days 365
