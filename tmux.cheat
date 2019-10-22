@@ -3,4 +3,5 @@
 # write tmux buffer to file
 tmux write-buffer <(file)
 
-
+# copy tmux buffer to clipboard
+tmux save-buffer ~/.tmux-buffer \; run-shell "xsel -i -b <~/.tmux-buffer && rm ~/.tmux
