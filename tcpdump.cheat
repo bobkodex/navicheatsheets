@@ -1,0 +1,10 @@
+% tcpdump, tcpflow
+
+# fetch packets
+sudo tcpdump -i any -w /tmp/http.log &
+
+# retrieve packets
+tcpdump -A -r /tmp/http.log | less
+
+# tcpflow liste
+sudo tcpflow -p -c port 80
