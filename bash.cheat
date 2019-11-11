@@ -1,0 +1,4 @@
+% bash
+
+# run command in if loop on all nodes
+for((i=12;i<=52;i+=2)); do ssh n$i -p 20 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no cat /exa/logs/cored/exainit.log; done
