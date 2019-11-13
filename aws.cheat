@@ -1,7 +1,11 @@
 % aws
 
-# describe all instances in aws account
-aws ec2 describe-instances --filter Name=tag:Name,Values=<name_tags> | jq .[][0].Instances[0].PublicIpAddress -r
+# get public ip address of running instances by name
+aws ec2 describe-instances --filter Name=tag:Name,Values=<running_name_tags> | jq .[][0].Instances[0].PublicIpAddress -r
 
-$ name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text
+# get instance-id by name
+aws ec2 describe-instances --filter Name=tag:Name,Values=<all_name_tags> | jq .[][0].Instances[0].InstanceId -r
 
+$ running_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags]' --filters Name=instance-state-name,Values=running --output text | grep Name | awk '{print $2}'
+$ all_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags]' --output text | grep Name | awk '{print $2}'
+ 
