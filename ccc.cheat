@@ -1,0 +1,10 @@
+# Set different COS working copy for DB
+ccc set Dependencies.COS=../git.cos-a4df7dd1-64r/
+
+# get full Alias (e.g. xy123-git.cos-xxxxxxx-64r) or Dependencies
+ccc get . Alias
+ccc get . Dependencies
+
+# get info about current working copy
+ccc info 
+
