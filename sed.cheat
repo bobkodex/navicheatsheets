@@ -1,0 +1,4 @@
+% sed
+
+# Print row 3-5 of file
+sed -n "3,5p" /tmp/file
