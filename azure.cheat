@@ -1,0 +1,4 @@
+% azure
+
+# list all regions
+az account list-locations
