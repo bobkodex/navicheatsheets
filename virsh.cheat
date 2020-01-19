@@ -1,2 +1,2 @@
-# List ALL domains
+# List ALL domains (running and turned off)
 virsh list --all
