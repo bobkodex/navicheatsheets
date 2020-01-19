@@ -1,0 +1,2 @@
+# List ALL domains
+virsh list --all
