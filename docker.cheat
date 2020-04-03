@@ -39,5 +39,9 @@ docker logs --tail 100 <container_id> | less
 # SSH into docker container
 docker exec -ti $(docker ps | grep "exasol/d" | awk '{print $1}') /bin/bash
 
+# load image from tar
+docker load < docker.tar
+
+
 $ image_id: docker images --- --headers 1 --column 3
 $ container_id: docker ps --- --headers 1 --column 1
