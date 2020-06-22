@@ -1,0 +1,3 @@
+# Extract all tar files recursive
+for file in $(find . -name "*.tar.gz"); do tar -xzvf $file -C $(dirname $file); done
+
