@@ -11,4 +11,6 @@ aws sts decode-authorization-message --encoded-message message
 
 $ running_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags]' --filters Name=instance-state-name,Values=running --output text | grep Name | awk '{print $2}'
 $ all_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags]' --output text | grep Name | awk '{print $2}'
- 
+
+# make all objects in bucket accessible for other accounts
+for object in $(aws s3 ls s3://bucketname/ --recursive | awk '{print $4}'); do aws s3api put-object-acl --bucket bucketname --key $object --grant-full-control id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; done 
