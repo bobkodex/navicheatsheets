@@ -71,3 +71,8 @@ git stash apply
 git remote prune origin
 
 $ branch: git branch | awk '{print $NF}'
+
+# delete accidentlly pushed binary
+git reset HEAD^ 
+git push origin :<branch-name>
+git push origin <branch-name>
