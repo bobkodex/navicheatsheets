@@ -76,3 +76,4 @@ $ branch: git branch | awk '{print $NF}'
 git reset HEAD^ 
 git push origin :<branch-name>
 git push origin <branch-name>
+git push origin -f
