@@ -1,0 +1,3 @@
+# Create recursive patch of folder and apply
+diff -Nurp old_folder new_folder
+patch -R folder <patch
