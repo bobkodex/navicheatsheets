@@ -13,4 +13,7 @@ $ running_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instanc
 $ all_name_tags: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Tags]' --output text | grep Name | awk '{print $2}'
 
 # make all objects in bucket accessible for other accounts
-for object in $(aws s3 ls s3://bucketname/ --recursive | awk '{print $4}'); do aws s3api put-object-acl --bucket bucketname --key $object --grant-full-control id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; done 
+for object in $(aws s3 ls s3://bucketname/ --recursive | awk '{print $4}'); do aws s3api put-object-acl --bucket bucketname --key $object --grant-full-control id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; done
+
+# delte all buckets with specific name pattern
+for bucket in $(aws s3 ls | grep part_of_bucket_name | awk '{print $3}'); do aws s3 rb --force s3://$bucket; done 
