@@ -1,0 +1,11 @@
+# vagrant init
+vagrant init
+
+# vagrant add virtual box image ubuntu
+vagrant box add ubuntu/xenial64
+
+# vagrant vm operaiotns
+vagrant up
+vagrant ssh
+vagrant halt
+vagrant destroy
