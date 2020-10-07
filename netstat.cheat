@@ -1,0 +1,2 @@
+# Show files being opened by specific process
+netstat -aln | grep c4_socket | wc -l
