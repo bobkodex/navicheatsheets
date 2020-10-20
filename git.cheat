@@ -77,3 +77,9 @@ git reset HEAD^
 git push origin :<branch-name>
 git push origin <branch-name>
 git push origin -f
+
+# show changes in specific commit
+git show <commit> 
+
+# show files changed
+git whatchanged
