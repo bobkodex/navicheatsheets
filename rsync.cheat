@@ -1,0 +1,2 @@
+# Sync folder to remote location via ssh
+rsync -avzhe ssh folder/ user@example.com:/home/user
