@@ -78,6 +78,11 @@ git push origin :<branch-name>
 git push origin <branch-name>
 git push origin -f
 
+# reset to different heads
+git reset --hard HEAD^
+git reset --hard HEAD~2
+git reset --hard HEAD@{[1]}
+
 # show changes in specific commit
 git show <commit> 
 
