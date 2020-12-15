@@ -29,3 +29,7 @@ openssl req -new -sha256 -key domain.key -subj "/C=US/ST=CA/O=Acme, Inc./CN=exam
 openssl req -x509 -nodes -newkey rsa:2048 \
     -keyout "ssl.key" -out "ssl.crt" \
     -subj "/C=DE/ST=Bavaria/L=Nuremberg,O=EXASOL AG" -days 365
+
+
+# debug tls handshake with openssl
+openssl s_client -connect localhost:443 -CAfile /etc/ssl/ssl.ca
