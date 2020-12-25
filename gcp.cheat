@@ -3,3 +3,6 @@
 # connect to instance with private ip only via identity aware proxy
 gcloud compute ssh projects/development-marketplace/zones/europe-west4-b/instances/mhiemer-n0010 --tunnel-through-iap
 
+# use cloudshell for docker image build and publishing
+cloudshell env build-local
+cloudshell env push
