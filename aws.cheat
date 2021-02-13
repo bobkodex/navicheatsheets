@@ -20,3 +20,6 @@ for bucket in $(aws s3 ls | grep part_of_bucket_name | awk '{print $3}'); do aws
 
 # run-instances command change default root volume size
 aws ec2 run-instances --block-device-mapping 'DeviceName=/dev/sda1,Ebs={ VolumeSize=100}'
+
+# delete all parameters in aws ssm parameters store
+for name in $(aws ssm describe-parameters | jq -r .[][].Name | grep "<parameter_name>"); do aws ssm delete-parameters --name $name; done
