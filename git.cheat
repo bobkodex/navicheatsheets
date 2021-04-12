@@ -88,3 +88,6 @@ git show <commit>
 
 # show files changed
 git whatchanged
+
+# delete remote branch
+git push origin --delete feature/login
