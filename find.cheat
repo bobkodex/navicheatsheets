@@ -1,0 +1,2 @@
+# grep for file content in all files in dir
+find . -type f -exec grep -H 'infra' {} +
