@@ -23,3 +23,6 @@ aws ec2 run-instances --block-device-mapping 'DeviceName=/dev/sda1,Ebs={ VolumeS
 
 # delete all parameters in aws ssm parameters store
 for name in $(aws ssm describe-parameters | jq -r .[][].Name | grep "<parameter_name>"); do aws ssm delete-parameters --name $name; done
+
+# forward db port with aws system manager
+aws ssm start-session --target <instance-id> --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["8563"],"localPortNumber":["8563"]}'
