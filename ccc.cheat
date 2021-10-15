@@ -8,3 +8,5 @@ ccc get . Dependencies
 # get info about current working copy
 ccc info 
 
+# set new uuid
+c4 get_uuid -f
