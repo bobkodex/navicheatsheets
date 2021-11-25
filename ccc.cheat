@@ -10,3 +10,6 @@ ccc info
 
 # set new uuid
 c4 get_uuid -f
+
+# remote port forwarding
+ssh -L 4443:localhost:4443 user@example.com
