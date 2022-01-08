@@ -91,3 +91,6 @@ git whatchanged
 
 # delete remote branch
 git push origin --delete feature/login
+
+# git rebase
+# https://www.jenweber.dev/how-to-squash-and-rebase/
