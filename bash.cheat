@@ -5,3 +5,6 @@ for((i=12;i<=52;i+=2)); do ssh n$i -p 20 -o UserKnownHostsFile=/dev/null -o Stri
 
 # run ssh in root shell
 sudo -u root -H sh -c "ssh -i /home/ubuntu/.ccc/play/local/*/main/*/root/root/.ssh/id_rsa root@localhost -p 20002"
+
+# restart service and watch
+sudo systemctl restart c4_cloud_command --force --no-block && sudo journalctl -fu c4_cloud_command
