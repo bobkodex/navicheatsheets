@@ -1,0 +1,7 @@
+% minikube
+
+# start minikube
+minikube start --driver=docker --alsologtostderr
+
+# dashboard
+minikube dashboard
