@@ -11,3 +11,6 @@ kubectl port-forward pod-name 8080:9097 -n namespace
 
 # open shell in pod
 kubectl exec --stdin --tty pod-xyz -- /bin/bash
+
+# get pod information
+kubectl get deployments -o wide --all-namespaces
