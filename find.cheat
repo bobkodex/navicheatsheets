@@ -1,2 +1,5 @@
 # grep for file content in all files in dir
 find . -type f -exec grep -H 'infra' {} +
+
+# delete all files/folders recursively with given name
+find . -name "test.txt" -exec rm -rf {} +
