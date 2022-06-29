@@ -94,3 +94,7 @@ git push origin --delete feature/login
 
 # git rebase
 # https://www.jenweber.dev/how-to-squash-and-rebase/
+
+# git show remote origin
+git remote show origin
+
