@@ -14,3 +14,6 @@ kubectl exec --stdin --tty pod-xyz -- /bin/bash
 
 # get pod information
 kubectl get deployments -o wide --all-namespaces
+
+# replace failed pod
+ kubectl get pod <name> -n <namespace> -o yaml | kubectl replace --force -f -
