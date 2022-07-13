@@ -17,3 +17,6 @@ kubectl get deployments -o wide --all-namespaces
 
 # replace failed pod
  kubectl get pod <name> -n <namespace> -o yaml | kubectl replace --force -f -
+
+# troubleshoot failed deployment
+kubectl get events --namespace=myapp
