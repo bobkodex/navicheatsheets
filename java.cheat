@@ -1,0 +1,4 @@
+% mvn
+
+# Download artifact directly with mvn
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get     -DrepoUrl=url     -Dartifact=org.picketbox:picketbox:4.0.19.Final
