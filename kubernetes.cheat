@@ -28,3 +28,6 @@ kubectl delete validatingwebhookconfigurations.admissionregistration.k8s.io <web
 
 # list all APIs
 kubectl api-resources -o wide
+
+# directly modify deployment yaml
+kubectl edit deployment deployment-name -o yaml
