@@ -8,6 +8,8 @@ kubectl get pods [--all-namespaces]
 
 # Forward port
 kubectl port-forward pod-name 8080:9097 -n namespace
+# For service
+kubectl port-forward svc/service-name 9090:909
 
 # open shell in pod
 kubectl exec --stdin --tty pod-xyz -- /bin/bash
