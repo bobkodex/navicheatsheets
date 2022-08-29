@@ -34,3 +34,6 @@ kubectl edit deployment deployment-name -o yaml
 
 # list role and role bindings for service accounts
 kubectl get rolebindings,clusterrolebindings --all-namespaces -o custom-columns='KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind=="ServiceAccount")].name'
+
+# get secret
+kubectl get secret secret  -o jsonpath='{.data}' -n paytra
