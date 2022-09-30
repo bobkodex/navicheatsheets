@@ -3,5 +3,11 @@
 # helm login to ecr repo
 aws ecr get-login-password | helm registry login --username AWS --password-stdin 1234567890.dkr.ecr.eu-central-1.amazonaws.com/repo-name
 
-# subsequently pull from repo
+# pull from repo
 helm pull oci://1234567890.dkr.ecr.eu-central-1.amazonaws.com/repo-name --version 1.0.0
+
+# package new helm artifcat
+helm package package_folder/
+
+# push helm artifact to repo
+helm push package-1.0.0.tgz oci://1234567890.dkr.ecr.eu-central-1.amazonaws.com/
