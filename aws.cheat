@@ -26,3 +26,6 @@ for name in $(aws ssm describe-parameters | jq -r .[][].Name | grep "<parameter_
 
 # forward db port with aws system manager
 aws ssm start-session --target <instance-id> --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["8563"],"localPortNumber":["8563"]}'
+
+# login to aws elastic container registry
+aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.eu-central-1.amazonaws.com
