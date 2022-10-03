@@ -14,3 +14,6 @@ helm push package-1.0.0.tgz oci://1234567890.dkr.ecr.eu-central-1.amazonaws.com/
 
 # install helm chart
 helm install install-name oci://1234567890.dkr.ecr.eu-central-1.amazonaws.com/chart-name
+
+# build dependencies for nested chart
+helm dependency build
