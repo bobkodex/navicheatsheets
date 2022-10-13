@@ -1,0 +1,9 @@
+% kafka
+
+# list delete describe topics
+./bin/kafka-topics.sh --bootstrap-server example.com:9092 --list
+./bin/kafka-topics.sh --bootstrap-server example.com:9092 --delete --topic '.*'
+./bin/kafka-topics.sh --bootstrap-server example.com:9092 --describe --topic ".*"
+
+# change replication factor for all topics
+for I in $(kafkactl get topics |  grep '1$' | cut -d " " -f1); do kafkactl alter topic $I --replication-factor 3  ; done
