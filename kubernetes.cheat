@@ -37,3 +37,6 @@ kubectl get rolebindings,clusterrolebindings --all-namespaces -o custom-columns=
 
 # get secret
 kubectl get secret secret  -o jsonpath='{.data}' -n paytra
+
+# get init container logs
+kubectl logs <pod_name> -c <init_container_name> -n <namespace>
