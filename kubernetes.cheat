@@ -40,3 +40,7 @@ kubectl get secret secret  -o jsonpath='{.data}' -n paytra
 
 # get init container logs
 kubectl logs <pod_name> -c <init_container_name> -n <namespace>
+
+# get all resources
+kubectl api-resources --verbs=list --namespaced -o name \
+  | xargs -n 1 kubectl get --show-kind --ignore-not-found -l <label>=<value> -n <namespace>
