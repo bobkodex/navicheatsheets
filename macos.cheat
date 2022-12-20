@@ -1,2 +1,5 @@
 # check if app is running on rosetta
 sysctl -n sysctl.proc_translated
+
+# flush DNS cache
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
