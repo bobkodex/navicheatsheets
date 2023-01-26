@@ -1,0 +1,2 @@
+# color output
+grep --color='auto' color /etc/passwd
