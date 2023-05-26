@@ -98,3 +98,5 @@ git push origin --delete feature/login
 # git show remote origin
 git remote show origin
 
+# run pre commits
+pre-commit run --all
