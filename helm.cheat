@@ -17,3 +17,7 @@ helm install install-name oci://1234567890.dkr.ecr.eu-central-1.amazonaws.com/ch
 
 # build dependencies for nested chart
 helm dependency build
+
+# helm linting commands
+helm template . --debug
+helm lint
