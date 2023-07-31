@@ -1,5 +1,5 @@
 # reload server config
-/opt/jboss/bin/jboss-cli.sh --connect -c ":shutdown(restart=true)"
+/opt/jboss/bin/jboss-cli.sh --connect -c ":shutdown(restart=true)" --controller=remote+https://localhost:9993
 
 # connect jboss cli with https
 connect remote+https://127.0.0.1:9993
