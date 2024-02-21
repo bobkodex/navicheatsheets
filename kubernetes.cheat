@@ -44,3 +44,6 @@ kubectl logs <pod_name> -c <init_container_name> -n <namespace>
 # get all resources
 kubectl api-resources --verbs=list --namespaced -o name \
   | xargs -n 1 kubectl get --show-kind --ignore-not-found -l <label>=<value> -n <namespace>
+
+# copy to pod
+kubectl cp test.zip pod_name:/tmp/test.zip -n namespace
